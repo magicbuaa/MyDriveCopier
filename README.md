@@ -1,7 +1,8 @@
 # MyDrive Copier 🚀
 > **One-Click Recursive Google Drive™ Folder Duplicator for Chrome**
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Available_Now-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v1.0.3_Available-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
+[![Version](https://img.shields.io/badge/version-v1.0.3-blue.svg?style=for-the-badge)](https://github.com/magicbuaa/MyDriveCopier/releases/tag/v1.0.3)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-success?style=for-the-badge)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg?style=for-the-badge)](LICENSE)
 
@@ -26,7 +27,7 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
 
 ## 📸 Dashboard & Preview
 
-| Real-Time Task Manager Dashboard | Configuration & OAuth Setup |
+| Real-Time Task Manager Dashboard | Configuration & BYOK Setup |
 | :---: | :---: |
 | ![Task Manager](assets/manager_preview.png) | ![Options & Setup](assets/options_preview.png) |
 
@@ -36,16 +37,19 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
 
 - 🌳 **True Deep-Tree Recursive Cloning**: Automatically traverses all nested subdirectories, preserves folder hierarchies, and mirrors all files (Google Docs, Sheets, Slides, PDFs, Videos, ZIPs, etc.).
 - ☁️ **100% Cloud-to-Cloud Transfer**: 0 local bandwidth consumed. Files copy directly within Google's datacenters at maximum cloud speeds.
+- 🔑 **Dual API Channels (Instant vs BYOK)**:
+  - **Official Built-in Key**: Works instantly out of the box with zero configuration.
+  - **Bring Your Own Key (BYOK)**: Connect your personal Google Cloud OAuth Client ID for 100% dedicated API quota and complete permission sovereignty.
 - 🛡️ **Intelligent Quota & Rate-Limit Shield**: Built-in exponential backoff with randomized jitter automatically handles Google API `429` (Too Many Requests) and `403` (`userRateLimitExceeded`) errors.
 - 🔄 **Resilient Background Service Worker**: Copy tasks run safely in the background. You can close the extension popup or browse other tabs without interrupting the copy process.
 - 📊 **Dedicated Full-Page Manager Dashboard**:
   - Live progress percentage and transfer counters.
   - Active color-coded terminal log.
-  - Granular file queue table (*Pending*, *Copying*, *Completed*, *Failed*).
+  - Granular file queue table (*Pending*, *Copying*, *Completed*, *Failed*, *Skipped*).
   - **One-Click Retry**: If a specific file fails due to Google transient limits, retry only the failed files without starting over.
   - Direct button to open the newly created destination folder in Google Drive.
 - 🔍 **One-Click Tab Auto-Detection**: Auto-detects folder IDs directly from your active Google Drive tab (`/folders/...`, `/u/0/folders/...`, or shared URLs).
-- 🔒 **Privacy-First & Zero Data Storage**: Your files never pass through any third-party servers. All API calls are executed directly between your Chrome browser and the official Google Drive API.
+- 🔒 **Privacy-First & Zero Data Storage**: Your files never pass through any third-party servers. All API calls are executed directly between your Chrome browser and official Google Drive API endpoints.
 
 ---
 
@@ -57,26 +61,63 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
 | **Local Bandwidth Used** | ❌ 100% Upload/Download | ✅ 0% | ❌ High (or VPS) | ✅ **0% (Pure Cloud)** |
 | **Preserves Folder Tree** | ⚠️ Often breaks ZIPs | ⚠️ Script dependent | ✅ Yes | ✅ **Exact 1:1 Mirror** |
 | **Handles 429 Rate Limits** | ❌ Manual retry | ❌ Script timeout | ⚠️ Config needed | ✅ **Auto Exponential Backoff** |
+| **BYOK Dedicated Quota** | ❌ N/A | ⚠️ Hardcoded in script | ⚠️ Complex config | ✅ **1-Click BYOK Toggle** |
 | **Technical Setup Required** | None (but painful) | Medium (Script code) | High (CLI & config) | ✅ **None (Click & Go)** |
 | **Background Execution** | ❌ Browser must stay open | ⚠️ 6 min max limit | ⚠️ Process dependent | ✅ **Service Worker** |
 
 ---
 
-## 🚀 Installation & Getting Started
+## 🔑 Dual Engine: Official Built-in vs. BYOK Mode
 
-### Option 1: Install from Chrome Web Store (Recommended)
-👉 **[Install MyDrive Copier from the Chrome Web Store](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)**
+MyDrive Copier gives you complete flexibility over how API requests are routed:
 
-1. Click **Add to Chrome**.
-2. Pin the extension to your toolbar for easy access.
-3. Open any shared Google Drive folder.
-4. Click the extension icon, click **Auto-Detect Tab**, and hit **Start Recursive Copy**!
+### 1. Official Built-in Client ID (Default)
+- **Zero Configuration**: Ready immediately upon installation.
+- Perfect for everyday users, small-to-medium folders, and quick duplications.
+- Uses official Google-verified OAuth credentials with automatic token lifecycle management.
+
+### 2. Bring Your Own Key (BYOK Mode)
+- **100% Dedicated API Quotas**: Google enforces a per-project API quota limit (~20,000 queries per 100 seconds). With your own Google Cloud project, you never share rate limits with anyone else.
+- **Maximum Privacy & Compliance**: Organizations with strict security policies can run everything under their own Google Cloud Console project.
+- **100% Free**: Google Cloud allows every user to create projects and OAuth credentials at zero cost.
+
+---
+
+## 🛠️ Step-by-Step BYOK Setup Guide (~2 minutes, 100% Free)
+
+If you wish to use your own Google Cloud OAuth credentials:
+
+### Step 1: Enable Google Drive API
+1. Visit the [Google Cloud Console API Library](https://console.cloud.google.com/flows/enableapi?apiid=drive.googleapis.com).
+2. Create or select a project (e.g., `MyDrive-Sync`).
+3. Click **Enable** for the Google Drive API.
+
+### Step 2: Configure OAuth Consent Screen
+1. Go to [OAuth Consent Screen](https://console.cloud.google.com/apis/credentials/consent).
+2. Choose **External** user type and click **Create**.
+3. Fill in the App Name (e.g., `MyDrive Copier`) and your contact email. *(Leave app logo and domain blank to bypass Google verification)*.
+4. **Scopes**: Add the `https://www.googleapis.com/auth/drive` scope.
+5. **Test Users (Crucial)**: Under **Test users**, add your Google Account email address. *(Required when the app is in Testing status, preventing `Error 403: access_denied`)*.
+
+### Step 3: Create OAuth Client ID
+1. Navigate to [Credentials -> Create Credentials -> OAuth client ID](https://console.cloud.google.com/apis/credentials/oauthclient).
+2. Select **Web application** as the application type.
+3. Under **Authorized redirect URIs**, click **+ ADD URI** and paste your Extension Redirect URI:
+   ```text
+   https://iblkpbllaopfleijcbgdhepjlfhblden.chromiumapp.org/
+   ```
+4. Click **Create** and copy your newly generated **Client ID** (ends with `.apps.googleusercontent.com`).
+
+### Step 4: Activate in Extension Settings
+1. Right-click the MyDrive Copier icon in Chrome and open **Options / Settings** (or click the Settings gear in the popup).
+2. Under **API & OAuth Credentials**, select **Bring Your Own Key (BYOK)**.
+3. Paste your Client ID and click **Save BYOK Client ID**.
+4. Click **Connect & Authorize Now** to complete authorization.
 
 ---
 
 ## 🚀 Installation & Getting Started
 
-### Official Distribution: Chrome Web Store
 👉 **[Install MyDrive Copier from the Chrome Web Store](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)**
 
 1. Click **Add to Chrome**.
@@ -99,9 +140,10 @@ MyDrive Copier is engineered with modern Chrome Manifest V3 specifications for e
 
 ## 🛡️ Security & Privacy
 
-- **Minimal Scopes**: We only request permissions necessary to read shared files (`drive.readonly`) and create copies in your drive (`drive.file`).
+- **Minimal Scopes**: We only request permissions necessary to read shared files and duplicate them into your drive.
 - **No Middleman**: All Google Drive API calls are sent directly from your browser client to `https://www.googleapis.com/drive/v3/`. No file contents or metadata ever touch any external proxy.
-- **Privacy Policy**: Read our full [Privacy Policy](https://mydrivecopier-api-931372518765.us-central1.run.app/privacy.html).
+- **Official Privacy Policy**: Read our full [Privacy Policy](https://mydrivecopier.com/privacy).
+- **Terms of Service**: Read our [Terms of Service](https://mydrivecopier.com/terms).
 
 ---
 
