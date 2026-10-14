@@ -1,8 +1,8 @@
 # MyDrive Copier 🚀
 > **One-Click Recursive Google Drive™ Folder Duplicator for Chrome**
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v1.0.3_Available-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
-[![Version](https://img.shields.io/badge/version-v1.0.3-blue.svg?style=for-the-badge)](https://github.com/magicbuaa/MyDriveCopier/releases/tag/v1.0.3)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v1.0.4_Available-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
+[![Version](https://img.shields.io/badge/version-v1.0.4-blue.svg?style=for-the-badge)](https://github.com/magicbuaa/MyDriveCopier/releases/tag/v1.0.4)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-success?style=for-the-badge)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg?style=for-the-badge)](LICENSE)
 
