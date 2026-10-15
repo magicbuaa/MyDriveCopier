@@ -1,6 +1,7 @@
 # MyDrive Copier 🚀
 > **One-Click Recursive Google Drive™ Folder Duplicator for Chrome**
 
+[![Website](https://img.shields.io/badge/Website-mydrivecopier.com-0284c7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mydrivecopier.com)
 [![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v1.0.5_Available-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
 [![Version](https://img.shields.io/badge/version-v1.0.5-blue.svg?style=for-the-badge)](https://github.com/magicbuaa/MyDriveCopier/releases/tag/v1.0.5)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-success?style=for-the-badge)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)
@@ -127,6 +128,15 @@ If you wish to use your own Google Cloud OAuth credentials:
 
 ---
 
+## 💎 Pricing & Value
+
+| Plan | Price | Features Included |
+| :--- | :---: | :--- |
+| **Free Trial** | **$0.00** | • Copy up to **50 files** 100% free on install<br>• Full multi-threaded copying & MD5 deduplication<br>• Real-time Task Manager dashboard<br>• No credit card required |
+| **Lifetime License** | **$12.99** *(one-time)* | • **Unlimited** recursive folder and file transfers forever<br>• Activate on up to **3 personal devices**<br>• Free lifetime updates and new features<br>• Priority customer support (`support@mydrivecopier.com`) |
+
+---
+
 ## 🏗️ Architecture & Core Components
 
 MyDrive Copier is engineered with modern Chrome Manifest V3 specifications for enterprise-grade stability and zero-loss copying:
@@ -147,10 +157,12 @@ MyDrive Copier is engineered with modern Chrome Manifest V3 specifications for e
 
 ---
 
-## 💬 Community & Feedback
+## 💬 Support & Contact
 
-- Found a bug or have a feature request? Please [open an issue](https://github.com/magicbuaa/MyDriveCopier/issues)!
-- Enjoying the extension? Please leave a 5-star review on the [Chrome Web Store](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)!
+- **Official Website**: [https://mydrivecopier.com](https://mydrivecopier.com)
+- **Customer Support**: [support@mydrivecopier.com](mailto:support@mydrivecopier.com)
+- **Bug Reports & Issues**: [GitHub Issues](https://github.com/magicbuaa/MyDriveCopier/issues)
+- **Store Listing & Reviews**: [Chrome Web Store](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
 
 ---
 
