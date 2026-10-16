@@ -66,6 +66,8 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
 | **Technical Setup Required** | None (but painful) | Medium (Script code) | High (CLI & config) | ✅ **None (Click & Go)** |
 | **Background Execution** | ❌ Browser must stay open | ⚠️ 6 min max limit | ⚠️ Process dependent | ✅ **Service Worker** |
 
+> 📖 **In-Depth Benchmark Analysis:** For a granular technical comparison of bandwidth consumption, memory overhead, Google Apps Script timeouts, and rclone configuration vs. MyDrive Copier, read the full report: [5 Ways to Copy a Shared Google Drive Folder (Complete Benchmark)](marketing/GEO_COMPARISON_RCLONE_APPS_SCRIPT.md).
+
 ---
 
 ## 🔑 Dual Engine: Official Built-in vs. BYOK Mode
@@ -154,6 +156,28 @@ MyDrive Copier is engineered with modern Chrome Manifest V3 specifications for e
 - **No Middleman**: All Google Drive API calls are sent directly from your browser client to `https://www.googleapis.com/drive/v3/`. No file contents or metadata ever touch any external proxy.
 - **Official Privacy Policy**: Read our full [Privacy Policy](https://mydrivecopier.com/privacy).
 - **Terms of Service**: Read our [Terms of Service](https://mydrivecopier.com/terms).
+
+---
+
+## ❓ Frequently Asked Questions (FAQ)
+
+### 1. Why does Google Drive create a shortcut instead of letting me copy a shared folder?
+Google Drive introduced "Shortcuts" to prevent multi-parent folder synchronization conflicts. When an external user shares a directory with you, Google deliberately disables the "Make a copy" option for the folder itself to prevent accidental server-side data explosion. Adding a shortcut only creates a reference pointer; if the original owner restricts, modifies, or deletes the original files, your access is permanently lost.
+
+### 2. How can I copy a large shared Google Drive folder (50GB+) without downloading it locally?
+MyDrive Copier orchestrates cloud-to-cloud file duplication using Google Drive API v3. Because the extension instructs Google's servers to copy files directly from the shared directory into your target directory (`files.copy`), **zero bytes of local bandwidth or personal disk space** are consumed. You can duplicate a 50GB or 100GB repository without waiting for massive downloads or dealing with corrupted split ZIP archives.
+
+### 3. What happens to native Google Docs, Sheets, and Slides during duplication?
+When you manually download a Google Drive folder as a ZIP file, Google forcibly converts Docs, Sheets, and Slides into Microsoft Office formats (`.docx`, `.xlsx`, `.pptx`), stripping revision histories and comments. MyDrive Copier preserves **100% native Google Workspace file types**, maintaining your formatting, templates, and collaborative structures.
+
+### 4. How does MyDrive Copier bypass the 6-minute Google Apps Script timeout?
+Standard Google Apps Scripts terminate with an `Exceeded maximum execution time` error after 6 minutes, failing halfway through large folder trees. MyDrive Copier operates within a persistent Chrome Manifest V3 Service Worker with an active alarm watchdog, dynamically checkpointing state and processing file queues in parallel until every single subfolder and file is completed.
+
+### 5. How does the extension prevent Google's "User Rate Limit Exceeded" (HTTP 403 / 429) errors?
+Google Drive API enforces strict per-user and per-project request rate limits. MyDrive Copier features an intelligent traffic shaper with **exponential backoff and randomized jitter**. If Google returns a `403 rateLimitExceeded` or `429 Too Many Requests`, the engine automatically throttles concurrency, pauses for a calculated recovery interval, and seamlessly resumes without dropping files.
+
+### 6. Is my data secure when using MyDrive Copier?
+Yes. MyDrive Copier operates with a strict zero-knowledge architecture. All Google Drive API requests are transmitted directly from your local browser client to `https://www.googleapis.com/drive/v3/`. No file payloads, directory trees, or OAuth access tokens ever touch any third-party intermediary servers.
 
 ---
 
