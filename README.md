@@ -2,8 +2,8 @@
 > **One-Click Recursive Google Drive™ Folder Duplicator for Chrome**
 
 [![Website](https://img.shields.io/badge/Website-mydrivecopier.com-0284c7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mydrivecopier.com)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v1.0.5_Available-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
-[![Version](https://img.shields.io/badge/version-v1.0.5-blue.svg?style=for-the-badge)](https://github.com/magicbuaa/MyDriveCopier/releases/tag/v1.0.5)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v1.0.6_Available-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
+[![Version](https://img.shields.io/badge/version-v1.0.6-blue.svg?style=for-the-badge)](https://github.com/magicbuaa/MyDriveCopier/releases/tag/v1.0.6)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-success?style=for-the-badge)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg?style=for-the-badge)](LICENSE)
 
@@ -37,6 +37,7 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
 ## ✨ Features
 
 - 🌳 **True Deep-Tree Recursive Cloning**: Automatically traverses all nested subdirectories, preserves folder hierarchies, and mirrors all files (Google Docs, Sheets, Slides, PDFs, Videos, ZIPs, etc.).
+- 📄 **Folder & Individual File Support**: Seamlessly copy either entire nested directories or standalone shared files (`/file/d/...`) directly to your destination without creating awkward empty wrapper folders.
 - ☁️ **100% Cloud-to-Cloud Transfer**: 0 local bandwidth consumed. Files copy directly within Google's datacenters at maximum cloud speeds.
 - 🔑 **Dual API Channels (Instant vs BYOK)**:
   - **Official Built-in Key**: Works instantly out of the box with zero configuration.
@@ -48,8 +49,8 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
   - Active color-coded terminal log.
   - Granular file queue table (*Pending*, *Copying*, *Completed*, *Failed*, *Skipped*).
   - **One-Click Retry**: If a specific file fails due to Google transient limits, retry only the failed files without starting over.
-  - Direct button to open the newly created destination folder in Google Drive.
-- 🔍 **One-Click Tab Auto-Detection**: Auto-detects folder IDs directly from your active Google Drive tab (`/folders/...`, `/u/0/folders/...`, or shared URLs).
+  - Direct button to open the newly created destination folder or copied file in Google Drive.
+- 🔍 **One-Click Tab Auto-Detection**: Auto-detects folder and file IDs directly from your active Google Drive tab (`/folders/...`, `/file/d/...`, `/u/0/folders/...`, or shared URLs).
 - 🔒 **Privacy-First & Zero Data Storage**: Your files never pass through any third-party servers. All API calls are executed directly between your Chrome browser and official Google Drive API endpoints.
 
 ---
