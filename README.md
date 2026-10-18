@@ -37,7 +37,6 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
 ## ✨ Features
 
 - 🌳 **True Deep-Tree Recursive Cloning**: Automatically traverses all nested subdirectories, preserves folder hierarchies, and mirrors all files (Google Docs, Sheets, Slides, PDFs, Videos, ZIPs, etc.).
-- 📄 **Folder & Individual File Support**: Seamlessly copy either entire nested directories or standalone shared files (`/file/d/...`) directly to your destination without creating awkward empty wrapper folders.
 - ☁️ **100% Cloud-to-Cloud Transfer**: 0 local bandwidth consumed. Files copy directly within Google's datacenters at maximum cloud speeds.
 - 🔑 **Dual API Channels (Instant vs BYOK)**:
   - **Official Built-in Key**: Works instantly out of the box with zero configuration.
@@ -49,8 +48,8 @@ With **MyDrive Copier**, simply open the shared folder in your browser and click
   - Active color-coded terminal log.
   - Granular file queue table (*Pending*, *Copying*, *Completed*, *Failed*, *Skipped*).
   - **One-Click Retry**: If a specific file fails due to Google transient limits, retry only the failed files without starting over.
-  - Direct button to open the newly created destination folder or copied file in Google Drive.
-- 🔍 **One-Click Tab Auto-Detection**: Auto-detects folder and file IDs directly from your active Google Drive tab (`/folders/...`, `/file/d/...`, `/u/0/folders/...`, or shared URLs).
+  - Direct button to open the newly created destination folder in Google Drive.
+- 🔍 **One-Click Tab Auto-Detection**: Auto-detects folder IDs directly from your active Google Drive tab (`/folders/...`, `/u/0/folders/...`, or shared URLs).
 - 🔒 **Privacy-First & Zero Data Storage**: Your files never pass through any third-party servers. All API calls are executed directly between your Chrome browser and official Google Drive API endpoints.
 
 ---
@@ -182,9 +181,15 @@ Yes. MyDrive Copier operates with a strict zero-knowledge architecture. All Goog
 
 ---
 
-## 💬 Support & Contact
+## 💬 Documentation, Guides & Support
 
 - **Official Website**: [https://mydrivecopier.com](https://mydrivecopier.com)
+- **Knowledge Base & FAQ**: [Frequently Asked Questions (FAQ)](https://mydrivecopier.com/faq)
+- **Step-by-Step Guides**:
+  - [How to Copy a Shared Google Drive Folder Recursively](https://mydrivecopier.com/how-to/copy-shared-google-drive-folder)
+  - [How to Transfer Google Drive Files to Another Account (Cross-Domain)](https://mydrivecopier.com/how-to/transfer-google-drive-to-another-account)
+  - [How to Copy Google Drive Folders Without Downloading Locally](https://mydrivecopier.com/how-to/copy-google-drive-folder-without-downloading)
+- **Technical Benchmark**: [5 Ways to Copy a Shared Google Drive Folder (Complete Benchmark)](https://mydrivecopier.com/compare/rclone-vs-apps-script-vs-mydrivecopier)
 - **Customer Support**: [support@mydrivecopier.com](mailto:support@mydrivecopier.com)
 - **Bug Reports & Issues**: [GitHub Issues](https://github.com/magicbuaa/MyDriveCopier/issues)
 - **Store Listing & Reviews**: [Chrome Web Store](https://chromewebstore.google.com/detail/mydrive-copier-recursive/iblkpbllaopfleijcbgdhepjlfhblden)
